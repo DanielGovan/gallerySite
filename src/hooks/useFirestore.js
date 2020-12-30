@@ -8,6 +8,7 @@ const useFirestore = (collection) => {
     const unsub = projectFirestore
       .collection(collection)
       .orderBy("createdAt", "desc")
+      // .whereGreaterThan("createdAt", savedDate) caching!
       .onSnapshot((snap) => {
         let documents = [];
         snap.forEach((doc) => {
